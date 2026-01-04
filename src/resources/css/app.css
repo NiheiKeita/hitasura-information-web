@@ -14,8 +14,8 @@
   .animate-swim-left {
     animation: swim-left 22s linear infinite;
   }
-  .animate-bob-fast {
-    animation: bob-fast 5s ease-in-out infinite;
+  .animate-crawl {
+    animation: crawl 14s ease-in-out infinite;
   }
   .fish-smooth {
     backface-visibility: hidden;
@@ -78,21 +78,15 @@
   }
 }
 
-@keyframes bob-fast {
+@keyframes crawl {
   0% {
-    transform: translate3d(0, 0, 0);
-  }
-  25% {
-    transform: translate3d(0, 48px, 0);
+    transform: translate3d(-8px, 0, 0);
   }
   50% {
-    transform: translate3d(0, 0, 0);
-  }
-  75% {
-    transform: translate3d(0, -36px, 0);
+    transform: translate3d(14px, 0, 0);
   }
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(-8px, 0, 0);
   }
 }
 
