@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-float-slow {
+    animation: float-slow 2.8s ease-in-out infinite;
+  }
+  .animate-swim-right {
+    animation: swim-right 20s linear infinite;
+  }
+  .animate-swim-left {
+    animation: swim-left 22s linear infinite;
+  }
+  .animate-bob-fast {
+    animation: bob-fast 5s ease-in-out infinite;
+  }
+  .fish-smooth {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+  .bubble {
+    animation: bubble-up 3.6s ease-in infinite;
+  }
+  .bubble-delay-1 {
+    animation-delay: 0.4s;
+  }
+  .bubble-delay-2 {
+    animation-delay: 1.2s;
+  }
+  .bubble-delay-3 {
+    animation-delay: 2s;
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes swim-right {
+  0% {
+    transform: translate3d(-112px, 0, 0) scaleX(-1);
+  }
+  49% {
+    transform: translate3d(144px, 0, 0) scaleX(-1);
+  }
+  50% {
+    transform: translate3d(144px, 0, 0) scaleX(1);
+  }
+  100% {
+    transform: translate3d(-112px, 0, 0) scaleX(1);
+  }
+}
+
+@keyframes swim-left {
+  0% {
+    transform: translate3d(112px, 0, 0) scaleX(1);
+  }
+  49% {
+    transform: translate3d(-144px, 0, 0) scaleX(1);
+  }
+  50% {
+    transform: translate3d(-144px, 0, 0) scaleX(-1);
+  }
+  100% {
+    transform: translate3d(112px, 0, 0) scaleX(-1);
+  }
+}
+
+@keyframes bob-fast {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(0, 48px, 0);
+  }
+  50% {
+    transform: translate3d(0, 0, 0);
+  }
+  75% {
+    transform: translate3d(0, -36px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bubble-up {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0) scale(0.6);
+  }
+  15% {
+    opacity: 0.6;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -168px, 0) scale(1.1);
+  }
+}
