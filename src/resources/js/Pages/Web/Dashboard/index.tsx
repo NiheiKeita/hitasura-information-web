@@ -162,7 +162,7 @@ export const Dashboard = React.memo(function Dashboard() {
                     <div className="pointer-events-none absolute inset-0">
                         <div className="absolute inset-0 bg-white/55" />
                         <div className="absolute -top-24 left-1/2 h-72 w-[520px] -translate-x-1/2 rounded-full bg-white/70 blur-3xl" />
-                        <div className="motion-safe:animate-swim-left absolute right-0 top-6 h-32 w-32 opacity-10 md:-right-6 md:top-10 md:h-40 md:w-40">
+                        <div className="motion-safe:animate-swim-left absolute right-0 top-6 h-32 w-32 opacity-60 md:-right-6 md:top-10 md:h-40 md:w-40">
                             <div className="fish-smooth motion-safe:animate-crawl">
                                 <img
                                     src="/images/logo.png"
@@ -172,7 +172,7 @@ export const Dashboard = React.memo(function Dashboard() {
                                 />
                             </div>
                         </div>
-                        <div className="motion-safe:animate-swim-right absolute bottom-12 left-6 hidden h-24 w-24 opacity-10 md:block">
+                        <div className="motion-safe:animate-swim-right absolute bottom-12 left-6 hidden h-24 w-24 opacity-50 md:block">
                             <div className="fish-smooth motion-safe:animate-crawl">
                                 <img
                                     src="/images/logo.png"
