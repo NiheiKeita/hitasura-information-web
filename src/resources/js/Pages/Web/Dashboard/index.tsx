@@ -102,10 +102,10 @@ export const Dashboard = React.memo(function Dashboard() {
         typeof navigator === 'undefined'
             ? appStoreUrl
             : /android/i.test(navigator.userAgent)
-              ? googlePlayUrl
-              : /iPad|iPhone|iPod/.test(navigator.userAgent)
-                ? appStoreUrl
-                : appStoreUrl
+                ? googlePlayUrl
+                : /iPad|iPhone|iPod/.test(navigator.userAgent)
+                    ? appStoreUrl
+                    : appStoreUrl
 
     return (
         <div
@@ -214,30 +214,32 @@ export const Dashboard = React.memo(function Dashboard() {
                                 >
                                     今すぐダウンロード
                                 </a>
-                                <a
-                                    href={googlePlayUrl}
-                                    className="rounded-full border border-white/70 bg-white/80 px-4 py-2"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    <img
-                                        src="/images/logo/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
-                                        alt="Google Play"
-                                        className="h-7 w-auto"
-                                    />
-                                </a>
-                                <a
-                                    href={appStoreUrl}
-                                    className="rounded-full border border-white/70 bg-white/80 px-4 py-2"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    <img
-                                        src="/images/logo/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
-                                        alt="App Store"
-                                        className="h-7 w-auto"
-                                    />
-                                </a>
+                                <div className="flex flex-wrap items-center gap-3">
+                                    <a
+                                        href={appStoreUrl}
+                                        aria-label="App Storeで見る"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        <img
+                                            src="/images/logo/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
+                                            alt="App Store"
+                                            className="h-7 w-auto"
+                                        />
+                                    </a>
+                                    <a
+                                        href={googlePlayUrl}
+                                        aria-label="Google Playで見る"
+                                        target="_blank"
+                                        rel="noreferrer"
+                                    >
+                                        <img
+                                            src="/images/logo/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
+                                            alt="Google Play"
+                                            className="h-7 w-auto"
+                                        />
+                                    </a>
+                                </div>
                             </div>
                             <div className="flex items-center gap-3 text-xs text-[#64748B]">
                                 <img
