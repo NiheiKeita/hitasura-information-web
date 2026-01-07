@@ -1,6 +1,11 @@
 
 import React from 'react'
 
+const appStoreUrl =
+    'https://apps.apple.com/jp/app/%E3%81%B2%E3%81%9F%E3%81%99%E3%82%89%E6%83%85%E5%A0%B1/id6757374807'
+const googlePlayUrl =
+    'https://play.google.com/store/apps/details?id=com.qboad.hitasura_information'
+
 const featureItems = [
     {
         title: '情報Iに特化',
@@ -93,6 +98,15 @@ const screenshots = [
 ]
 
 export const Dashboard = React.memo(function Dashboard() {
+    const storeUrl =
+        typeof navigator === 'undefined'
+            ? appStoreUrl
+            : /android/i.test(navigator.userAgent)
+              ? googlePlayUrl
+              : /iPad|iPhone|iPod/.test(navigator.userAgent)
+                ? appStoreUrl
+                : appStoreUrl
+
     return (
         <div
             className="min-h-screen bg-[#F8FAFC] text-[#475569]"
@@ -116,10 +130,8 @@ export const Dashboard = React.memo(function Dashboard() {
                         />
                     </div>
                     <div className="flex items-center gap-2">
-                        {/*
-                        TODO: App Store URL
                         <a
-                            href="https://play.google.com/store/apps/details?id=com.qboad.hitasura_information"
+                            href={appStoreUrl}
                             aria-label="App Storeで見る"
                             target="_blank"
                             rel="noreferrer"
@@ -130,12 +142,8 @@ export const Dashboard = React.memo(function Dashboard() {
                                 className="h-6 w-auto"
                             />
                         </a>
-                        */}
-                        {/*
-                        TODO: Google Play URL
-                        */}
                         <a
-                            href="https://play.google.com/store/apps/details?id=com.qboad.hitasura_information"
+                            href={googlePlayUrl}
                             aria-label="Google Playで見る"
                             target="_blank"
                             rel="noreferrer"
@@ -199,7 +207,7 @@ export const Dashboard = React.memo(function Dashboard() {
                             </p>
                             <div className="flex flex-col items-start gap-3 pt-2 sm:flex-row sm:items-center">
                                 <a
-                                    href="https://play.google.com/store/apps/details?id=com.qboad.hitasura_information"
+                                    href={storeUrl}
                                     className="rounded-full bg-[#0EA5E9] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#0EA5E9]/30"
                                     target="_blank"
                                     rel="noreferrer"
@@ -207,7 +215,7 @@ export const Dashboard = React.memo(function Dashboard() {
                                     今すぐダウンロード
                                 </a>
                                 <a
-                                    href="https://play.google.com/store/apps/details?id=com.qboad.hitasura_information"
+                                    href={googlePlayUrl}
                                     className="rounded-full border border-white/70 bg-white/80 px-4 py-2"
                                     target="_blank"
                                     rel="noreferrer"
@@ -215,6 +223,18 @@ export const Dashboard = React.memo(function Dashboard() {
                                     <img
                                         src="/images/logo/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
                                         alt="Google Play"
+                                        className="h-7 w-auto"
+                                    />
+                                </a>
+                                <a
+                                    href={appStoreUrl}
+                                    className="rounded-full border border-white/70 bg-white/80 px-4 py-2"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img
+                                        src="/images/logo/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
+                                        alt="App Store"
                                         className="h-7 w-auto"
                                     />
                                 </a>
@@ -403,10 +423,8 @@ export const Dashboard = React.memo(function Dashboard() {
                                 情報Iの反復トレーニングを、今すぐ。
                             </p>
                             <div className="mt-6 flex flex-wrap justify-center gap-3">
-                                {/*
-                                TODO: App Store URL
                                 <a
-                                    href="https://play.google.com/store/apps/details?id=com.qboad.hitasura_information"
+                                    href={appStoreUrl}
                                     aria-label="App Storeで見る"
                                     target="_blank"
                                     rel="noreferrer"
@@ -417,12 +435,8 @@ export const Dashboard = React.memo(function Dashboard() {
                                         className="h-8 w-auto"
                                     />
                                 </a>
-                                */}
-                                {/*
-                                TODO: Google Play URL
-                                */}
                                 <a
-                                    href="https://play.google.com/store/apps/details?id=com.qboad.hitasura_information"
+                                    href={googlePlayUrl}
                                     aria-label="Google Playで見る"
                                     target="_blank"
                                     rel="noreferrer"
