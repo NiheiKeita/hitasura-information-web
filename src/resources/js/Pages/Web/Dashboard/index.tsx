@@ -1,5 +1,7 @@
 
 import React from 'react'
+import WebHeader from '@/Components/WebHeader'
+import WebFooter from '@/Components/WebFooter'
 
 const appStoreUrl =
     'https://apps.apple.com/jp/app/%E3%81%B2%E3%81%9F%E3%81%99%E3%82%89%E6%83%85%E5%A0%B1/id6757374807'
@@ -112,51 +114,7 @@ export const Dashboard = React.memo(function Dashboard() {
             className="min-h-screen bg-[#F8FAFC] text-[#475569]"
             style={{ fontFamily: '"Zen Kaku Gothic New", "Yu Gothic", sans-serif' }}
         >
-            <header className="sticky top-0 z-40 border-b border-[#E2E8F0] bg-white/80 backdrop-blur">
-                <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-10">
-                    <div className="flex items-center gap-2">
-                        <img
-                            src="/images/logo.png"
-                            alt="ひたすら情報"
-                            className="h-7 w-auto md:h-8"
-                        />
-                        <span className="text-sm font-semibold text-[#0F172A] md:text-base">
-                            ひたすら情報
-                        </span>
-                        <img
-                            src="/images/logo.png"
-                            alt="ひたすら情報アイコン"
-                            className="h-7 w-auto md:h-8"
-                        />
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <a
-                            href={appStoreUrl}
-                            aria-label="App Storeで見る"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <img
-                                src="/images/logo/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
-                                alt="App Store"
-                                className="h-6 w-auto"
-                            />
-                        </a>
-                        <a
-                            href={googlePlayUrl}
-                            aria-label="Google Playで見る"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <img
-                                src="/images/logo/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
-                                alt="Google Play"
-                                className="h-6 w-auto"
-                            />
-                        </a>
-                    </div>
-                </div>
-            </header>
+            <WebHeader />
 
             <main>
                 <section
@@ -464,11 +422,7 @@ export const Dashboard = React.memo(function Dashboard() {
                     </div>
                 </section>
             </main>
-            <footer className="border-t border-[#E2E8F0] bg-white">
-                <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-5 py-8 text-xs text-[#64748B] md:flex-row md:justify-between md:px-10">
-                    <div>© ひたすら情報</div>
-                </div>
-            </footer>
+            <WebFooter />
         </div>
     )
 })
