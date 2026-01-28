@@ -22,4 +22,14 @@ class ArticleController extends Controller
     {
         return Inertia::render('Web/Articles/Pseudocode');
     }
+
+    public function loop(): Response
+    {
+        return Inertia::render('Web/Articles/Loop');
+    }
+
+    public function binary(): Response
+    {
+        return Inertia::render('Web/Articles/Binary');
+    }
 }
