@@ -27,6 +27,7 @@ Route::group(['middleware' => 'basicauth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('web.top');
     Route::get('/articles', [ArticleController::class, 'index'])->name('web.articles.index');
     Route::get('/articles/condition-branching', [ArticleController::class, 'conditionBranching'])->name('web.articles.condition-branching');
+    Route::get('/articles/pseudocode', [ArticleController::class, 'pseudocode'])->name('web.articles.pseudocode');
 
     Route::fallback(function () {
         return redirect(route('web.top'));

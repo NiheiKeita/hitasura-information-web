@@ -17,4 +17,9 @@ class ArticleController extends Controller
     {
         return Inertia::render('Web/Articles/ConditionBranching');
     }
+
+    public function pseudocode(): Response
+    {
+        return Inertia::render('Web/Articles/Pseudocode');
+    }
 }

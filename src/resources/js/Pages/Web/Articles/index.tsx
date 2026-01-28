@@ -6,6 +6,16 @@ import WebInfoAppCta from '@/Components/WebInfoAppCta'
 
 const articles = [
     {
+        title: '疑似コードとは？プログラミングの「考え方」を言語化する最強の道具',
+        subtitle: 'コードを書く前に思考を整える必須スキル',
+        description:
+            '疑似コードの意味、書き方、条件分岐・ループとの関係、実コードへのつなげ方までを体系的に解説。',
+        href: '/articles/pseudocode',
+        badge: '基礎理解',
+        readTime: '読む目安: 9分',
+        keywords: ['疑似コード', 'プログラミング', '考え方', '条件分岐', 'ループ'],
+    },
+    {
         title: '条件分岐とは？プログラミングの思考を決める最重要概念を完全解説',
         subtitle: '情報Iで必須の条件分岐をやさしく整理',
         description:
