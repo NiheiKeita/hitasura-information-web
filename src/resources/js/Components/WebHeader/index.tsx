@@ -1,65 +1,65 @@
 
-import React, { useEffect, useState } from 'react'
-import Button from '../Button'
-import { router, usePage } from '@inertiajs/react'
+import React from 'react'
+import { Link } from '@inertiajs/react'
 
-type Props = {
-    page?: "rental" | "ma",
-}
-export const WebHeader = React.memo<Props>(function WebHeader({
-    page
-}) {
-    const [isVisible, setIsVisible] = useState(true)
-    const [lastScrollY, setLastScrollY] = useState(0)
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const handleScroll = () => {
-        if (typeof window !== 'undefined') {
-            const currentScrollY = window.scrollY
-            setIsVisible(currentScrollY < lastScrollY || currentScrollY < 50)
-            setLastScrollY(currentScrollY)
-        }
-    }
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll)
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [lastScrollY])
+const appStoreUrl =
+    'https://apps.apple.com/jp/app/%E3%81%B2%E3%81%9F%E3%81%99%E3%82%89%E6%83%85%E5%A0%B1/id6757374807'
+const googlePlayUrl =
+    'https://play.google.com/store/apps/details?id=com.qboad.hitasura_information'
 
+export const WebHeader = React.memo(function WebHeader() {
     return (
-        <header className={`sticky left-0 top-0 z-50 w-full bg-white shadow transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-            <div className="mx-auto flex items-center justify-between p-4">
-                <div className="flex items-center" >
-                    <div className='cursor-pointer' onClick={() => router.visit(route('web.top'))}>
-                        <img src="/img/logo.png" alt="Logo" className="h-8" />
-                    </div>
-                    <div className="ms-6 hidden justify-start space-x-4 md:flex">
-                        <div className={`cursor-pointer`} onClick={() => { }}>メニュー１</div>
-                        <div className={`cursor-pointer`} onClick={() => { }}>メニュー２</div>
-                    </div>
-                </div>
+        <header className="sticky top-0 z-40 border-b border-[#E2E8F0] bg-white/80 backdrop-blur">
+            <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-10">
+                <Link href={route('web.top')} className="flex items-center gap-2">
+                    <img
+                        src="/images/logo.png"
+                        alt="ひたすら情報"
+                        className="h-7 w-auto md:h-8"
+                    />
+                    <span className="text-sm font-semibold text-[#0F172A] md:text-base">
+                        ひたすら情報
+                    </span>
+                    <img
+                        src="/images/logo.png"
+                        alt="ひたすら情報アイコン"
+                        className="h-7 w-auto md:h-8"
+                    />
+                </Link>
                 <div className="flex items-center gap-2">
-                    <Button className='ms-8' variant='blue' onClick={() => router.visit(route("user.login"))}>ログイン</Button>
-
-                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="ml-2 md:hidden">
-                        {isMenuOpen ? (
-                            <span className="block h-6 w-6 text-gray-700">✖</span>
-                        ) : (
-                            <span className="block h-auto w-6 text-gray-700">
-                                <span className="mb-1 block h-0.5 w-6 bg-gray-700"></span>
-                                <span className="mb-1 block h-0.5 w-6 bg-gray-700"></span>
-                                <span className="block h-0.5 w-6 bg-gray-700"></span>
-                            </span>
-                        )}
-                    </button>
+                    <Link
+                        href={route('web.articles.index')}
+                        className="rounded-full border border-[#0EA5E9]/30 px-4 py-2 text-xs font-semibold text-[#0EA5E9] transition hover:bg-[#0EA5E9]/10 md:text-sm"
+                    >
+                        記事一覧
+                    </Link>
+                    <a
+                        href={appStoreUrl}
+                        aria-label="App Storeで見る"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="/images/logo/Download_on_the_App_Store_Badge_JP_RGB_blk_100317.svg"
+                            alt="App Store"
+                            className="h-6 w-auto"
+                        />
+                    </a>
+                    <a
+                        href={googlePlayUrl}
+                        aria-label="Google Playで見る"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <img
+                            src="/images/logo/GetItOnGooglePlay_Badge_Web_color_Japanese.svg"
+                            alt="Google Play"
+                            className="h-6 w-auto"
+                        />
+                    </a>
                 </div>
-            </div >
-            {/* ハンバーガーメニュー */}
-            < nav className={`fixed left-0 top-16 flex w-full flex-col space-y-2 bg-white p-4 shadow-md ${isMenuOpen ? 'block' : 'hidden'}`}>
-                <button className={`text-gray-700 hover:text-blue-500 `} onClick={() => { }}>メニュー１</button>
-                <button className={`text-gray-700 hover:text-blue-500 `} onClick={() => { }}>メニュー２</button>
-            </nav >
-        </header >
+            </div>
+        </header>
     )
 })
 export default WebHeader

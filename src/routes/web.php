@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Web\DashboardController;
 use App\Http\Controllers\Web\LoginController;
 use App\Http\Controllers\Web\PasswordController;
+use App\Http\Controllers\Web\ArticleController;
 use App\Http\Middleware\VerifyCsrfToken;
 
 /*
@@ -24,6 +25,8 @@ use App\Http\Middleware\VerifyCsrfToken;
 
 Route::group(['middleware' => 'basicauth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('web.top');
+    Route::get('/articles', [ArticleController::class, 'index'])->name('web.articles.index');
+    Route::get('/articles/condition-branching', [ArticleController::class, 'conditionBranching'])->name('web.articles.condition-branching');
 
     Route::fallback(function () {
         return redirect(route('web.top'));
