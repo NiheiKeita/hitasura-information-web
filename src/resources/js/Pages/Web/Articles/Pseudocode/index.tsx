@@ -1,8 +1,11 @@
 import React from 'react'
-import { Head, Link } from '@inertiajs/react'
+import { Head } from '@inertiajs/react'
 import WebHeader from '@/Components/WebHeader'
 import WebFooter from '@/Components/WebFooter'
 import WebInfoAppCta from '@/Components/WebInfoAppCta'
+import WebArticleHero from '@/Components/WebArticleHero'
+import WebArticleBackToList from '@/Components/WebArticleBackToList'
+import { WebArticleTocAside, WebArticleTocMobile } from '@/Components/WebArticleToc'
 
 const tocItems = [
     { id: 'what-is', label: '疑似コードとは？【一言で】' },
@@ -32,52 +35,16 @@ export const PseudocodeArticle = React.memo(function PseudocodeArticle() {
             <WebHeader />
 
             <main className="mx-auto flex max-w-6xl flex-col gap-10 px-5 py-12 md:px-10">
-                <section
-                    className="relative overflow-hidden rounded-3xl border border-white/60 bg-white/80 p-8 shadow-[0_25px_70px_rgba(15,23,42,0.12)] md:p-12"
-                    style={{
-                        backgroundImage: "url('/images/sand_bk.jpg')",
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                    }}
-                >
-                    <div className="absolute inset-0 bg-white/70" />
-                    <div className="relative space-y-3">
-                        <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#0EA5E9]">
-                            Programming Core
-                        </p>
-                        <h1 className="text-3xl font-extrabold leading-tight text-[#0F172A] md:text-4xl">
-                            疑似コードとは？プログラミングの「考え方」を言語化する最強の道具
-                        </h1>
-                        <p className="max-w-2xl text-sm text-[#475569] md:text-base">
-                            書き始める前に「考え方」を言葉で整理する。疑似コードの意味・書き方・条件分岐やループとの関係を体系的に解説します。
-                        </p>
-                        <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
-                            <span className="rounded-full bg-[#0F172A] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white">
-                                Guide
-                            </span>
-                            <span>更新日: 2024.11.20</span>
-                            <span>読了目安: 9分</span>
-                        </div>
-                    </div>
-                </section>
+                <WebArticleHero
+                    eyebrow="Programming Core"
+                    title="疑似コードとは？プログラミングの「考え方」を言語化する最強の道具"
+                    description="書き始める前に「考え方」を言葉で整理する。疑似コードの意味・書き方・条件分岐やループとの関係を体系的に解説します。"
+                    badge="Guide"
+                    date="2024.11.20"
+                    readTime="9分"
+                />
 
-                <section className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_12px_32px_rgba(15,23,42,0.08)] lg:hidden">
-                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#0EA5E9]">
-                        Contents
-                    </p>
-                    <ol className="mt-4 space-y-3 border-l-2 border-slate-200 pl-4 text-sm text-slate-600">
-                        {tocItems.map((item, index) => (
-                            <li key={item.id} className="group">
-                                <a href={`#${item.id}`} className="flex items-start gap-3 hover:text-slate-900">
-                                    <span className="mt-0.5 text-xs font-semibold text-slate-400 group-hover:text-[#0EA5E9]">
-                                        {String(index + 1).padStart(2, '0')}
-                                    </span>
-                                    <span>{item.label}</span>
-                                </a>
-                            </li>
-                        ))}
-                    </ol>
-                </section>
+                <WebArticleTocMobile items={tocItems} />
 
                 <div className="grid gap-8 lg:grid-cols-[1fr_260px]">
                     <article className="space-y-10 rounded-3xl border border-[#E2E8F0] bg-white p-6 text-sm leading-relaxed text-slate-700 shadow-[0_18px_60px_rgba(15,23,42,0.08)] md:p-10 md:text-base">
@@ -302,42 +269,12 @@ export const PseudocodeArticle = React.memo(function PseudocodeArticle() {
                         </section>
                     </article>
 
-                    <aside className="hidden space-y-6 lg:block">
-                        <div className="sticky top-24 rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-[0_12px_32px_rgba(15,23,42,0.08)]">
-                            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#0EA5E9]">
-                                Contents
-                            </p>
-                            <ol className="mt-4 space-y-3 border-l-2 border-slate-200 pl-4 text-sm text-slate-600">
-                                {tocItems.map((item, index) => (
-                                    <li key={item.id} className="group">
-                                        <a href={`#${item.id}`} className="flex items-start gap-3 hover:text-slate-900">
-                                            <span className="mt-0.5 text-xs font-semibold text-slate-400 group-hover:text-[#0EA5E9]">
-                                                {String(index + 1).padStart(2, '0')}
-                                            </span>
-                                            <span>{item.label}</span>
-                                        </a>
-                                    </li>
-                                ))}
-                            </ol>
-                        </div>
-                    </aside>
+                    <WebArticleTocAside items={tocItems} />
                 </div>
 
                 <WebInfoAppCta />
 
-                <section className="rounded-3xl border border-[#E2E8F0] bg-white p-8 shadow-[0_18px_60px_rgba(15,23,42,0.08)]">
-                    <h2 className="text-xl font-bold text-slate-900">記事一覧に戻る</h2>
-                    <p className="mt-2 text-sm text-slate-600">
-                        ひたすら情報向けの学習記事をまとめています。次に読むテーマを探すときは一覧へ。
-                    </p>
-                    <Link
-                        href={route('web.articles.index')}
-                        className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#0EA5E9] px-4 py-2 text-xs font-semibold text-white"
-                    >
-                        記事一覧を見る
-                        <span aria-hidden="true">→</span>
-                    </Link>
-                </section>
+                <WebArticleBackToList />
             </main>
 
             <WebFooter />
